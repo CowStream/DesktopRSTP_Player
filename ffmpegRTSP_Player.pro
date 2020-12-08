@@ -25,11 +25,16 @@ HEADERS += \
 FORMS += \
     mainwindow.ui
 
-INCLUDEPATH += $$PWD/ffmpeg/include
+INCLUDEPATH += $$PWD/VLC-Qt/include
 
-LIBS += -L$$PWD/ffmpeg/lib -lavcodec -lavdevice -lavfilter -lavformat -lavutil -lpostproc -lswresample -lswscale
+LIBS += -L$$PWD/VLC-Qt/lib -lVLCQtCore -lVLCQtWidgets
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES +=
+
+RESOURCES += \
+    icon/icon.qrc

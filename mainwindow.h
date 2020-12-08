@@ -11,16 +11,21 @@
 #include <QBoxLayout>
 #include <QLCDNumber>
 
+#include <QFileDialog>
+#include <QInputDialog>
+
+// qt vlc
+#include <VLCQtWidgets/WidgetVideo.h>
+#include <VLCQtWidgets/WidgetVolumeSlider.h>
+#include <VLCQtWidgets/WidgetSeek.h>
+
 /**
- * FFMPEG LIB
+ * qt-vlc class
  */
-#include <libavcodec/avcodec.h>
-#include <libavformat/avformat.h>
-#include <libswscale/swscale.h>
-#include <libavdevice/avdevice.h>
-#include <libavformat/version.h>
-#include <libavutil/time.h>
-#include <libavutil/mathematics.h>
+class VlcInstance;
+class VlcMedia;
+class VlcMediaPlayer;
+
 
 
 QT_BEGIN_NAMESPACE
@@ -42,48 +47,38 @@ public:
 private:
     Ui::MainWindow *ui;
 
-    QMutex mutex;
-    AVPicture  pAVPicture;
-    AVFormatContext *pAVFormatContext;
-    AVCodecContext *pAVCodecContext;
-    AVFrame *pAVFrame;
-    SwsContext *pSwsContext;
-    AVPacket pAVPacket;
 
-    /* timer ctrl temp */
-    QTimer *m_timerPlay;
-    int minRecord;
-    int secRecord;
+    /* VLC media */
+    // A basic Instance manager for VLC-Qt library. It provides main instance controls.
+    VlcInstance *vlc_Instance;
+    // An abstract representation of a playable media
+    VlcMedia *vlc_Media;
+    // A basic MediaPlayer manager for VLC-Qt library. It provides main playback controls.
+    VlcMediaPlayer *vlc_player;
+//    // This is one of VLC-Qt GUI classes. It provides video display and mouse control.
+//    VlcWidgetVideo *vlc_video;
 
 
-    int m_i_frameFinished;
-    int videoStreamIndex;
-    int m_i_w;
-    int m_i_h;
-    QLabel *m_label;
-    QString m_str_url;
-    int videoWidth;
-    int videoHeight;
 
-    /* UI */
-    QPushButton *PlayButton;
-    QLabel *playScreen;
-    QLCDNumber *minLCD;
-    QLCDNumber *secLCD;
-    QImage *frame;
+//    /* UI */
+//    //Top bar
+//    QPushButton *openUrlButton;       // 打开url流
+//    QPushButton *openLocalFileButton; // 打开本地文件
+
+//    //player contrl bar
+//    QPushButton *PlayButton;
+//    VlcWidgetVolumeSlider *volume;
+//    VlcWidgetSeek *seek;
+
+    bool playButtonFlag;
+    bool volumeButtonFlag;
 
     bool Init();
 
-signals:
-    void GetImage(QImage image);
-
 private slots:
-    void SetImageSlots(const QImage &image);
-    void playSlots();
-    void on_start_pushButton_clicked();
-    void on_stop_pushButton_clicked();
-
-    /* timer ctrl */
-    void updateRecordTimer();
+    void openLocal();
+    void openUrl();
+    void playButtonStatus();
+    void on_volumeButton_clicked();
 };
 #endif // MAINWINDOW_H
