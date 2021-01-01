@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>741</width>
+    <height>521</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>媒体列表</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>复制您想看的节目</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <row>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>视频名称</string>
+      </property>
+      <property name="font">
+       <font>
+        <family>阿里巴巴普惠体 Medium</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>视频链接</string>
+      </property>
+      <property name="font">
+       <font>
+        <family>阿里巴巴普惠体 Light</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+     </column>
+     <item row="0" column="0">
+      <property name="text">
+       <string>游戏视频</string>
+      </property>
+     </item>
+     <item row="0" column="1">
+      <property name="text">
+       <string>rtsp://192.168.3.233:8554/22-4.webm</string>
+      </property>
+     </item>
+     <item row="1" column="0">
+      <property name="text">
+       <string>航拍视频</string>
+      </property>
+     </item>
+     <item row="1" column="1">
+      <property name="text">
+       <string>rtsp://192.168.3.233:8554/test.mkv</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

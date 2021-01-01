@@ -7,6 +7,8 @@
 #include <VLCQtCore/Media.h>
 #include <VLCQtCore/MediaPlayer.h>
 
+QString playURL = "NULL";
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow),
@@ -102,11 +104,14 @@ void MainWindow::openLocal()
 
 void MainWindow::openUrl()
 {
-    QString url =
-            QInputDialog::getText(this, tr("Open Url"), tr("Enter the URL you want to play"));
+    QString url;
 
-    if (url.isEmpty())
+    if (url.isEmpty() && playURL.isEmpty())
         return;
+    else
+    {
+        url = QInputDialog::getText(this, tr("Open Url"), tr("Enter the URL you want to play"));
+    }
 
     vlc_Media = new VlcMedia(url, vlc_Instance);
 
@@ -127,4 +132,10 @@ void MainWindow::on_volumeButton_clicked()
         ui->volume->setVisible(false);
     }
 
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    form_window = new Form;
+    form_window->show();
 }

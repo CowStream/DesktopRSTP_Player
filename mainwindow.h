@@ -13,11 +13,16 @@
 
 #include <QFileDialog>
 #include <QInputDialog>
+#include <QDesktopServices>
+#include <QUrl>
 
 // qt vlc
 #include <VLCQtWidgets/WidgetVideo.h>
 #include <VLCQtWidgets/WidgetVolumeSlider.h>
 #include <VLCQtWidgets/WidgetSeek.h>
+
+//other window
+#include "form.h"
 
 /**
  * qt-vlc class
@@ -26,7 +31,7 @@ class VlcInstance;
 class VlcMedia;
 class VlcMediaPlayer;
 
-
+extern QString playURL;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -39,6 +44,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    Form *form_window;
 
     void setUrl(QString url);
     void startStream();
@@ -80,5 +87,6 @@ private slots:
     void openUrl();
     void playButtonStatus();
     void on_volumeButton_clicked();
+    void on_pushButton_clicked();
 };
 #endif // MAINWINDOW_H

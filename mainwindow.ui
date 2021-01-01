@@ -52,6 +52,13 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>PlayList</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>
@@ -95,7 +102,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="icon/icon.qrc">
+         <iconset>
           <normaloff>:/icon/play.ico</normaloff>:/icon/play.ico</iconset>
         </property>
        </widget>
@@ -128,7 +135,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="icon/icon.qrc">
+         <iconset>
           <normaloff>:/icon/volume.ico</normaloff>:/icon/volume.ico</iconset>
         </property>
        </widget>
@@ -232,8 +239,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="icon/icon.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
